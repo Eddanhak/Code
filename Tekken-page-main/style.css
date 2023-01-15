@@ -1,0 +1,263 @@
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
+    background-color: rgba(44, 43, 43, 0.507);
+    height: 100%;
+    margin: 0;
+
+}
+
+.flex-container { /*ALL containers in this container */
+    height: 100%;
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    padding: -10px;
+}
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1f2937;
+    padding: 30px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 650px;
+}
+
+.header-logo {
+    display: flex;
+
+
+}
+.header-links {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentation-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 650px;
+
+}
+
+.presentation-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.presentation-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.trailer-link-container {
+    display: flex;
+    background-color: #3882f6;
+    height: 50px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.presentation-image {
+    display: flex;
+}
+
+#image-jin {
+    border-radius: 15px;
+}
+
+.confirmed-characters-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    
+    padding: 50px;
+}
+
+.confirmed-characters-text {
+    align-self: center;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+.character-images {
+    display: flex;
+    justify-content: center;
+}
+
+.character-law {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.character-kazuya {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.character-king {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.character-jack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e5e7eb;
+
+    padding: 50px;
+}
+
+.quote-author-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-author {
+    display: flex;
+    align-self: flex-end;
+    margin-top: -20px;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.signup-container {
+    display: flex;
+    background-color: #3882f6;
+    justify-content: center;
+    border-radius: 20px;
+
+    padding: 20px;
+    margin: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f2937;
+    height: 100%;
+}
+
+#footer-stamp {
+    color:#e5e7eb;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 20px;
+}
+.p-quote  {
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 10;
+}
+
+.p-quote-author {
+    font-weight: 800;
+}
+
+.signup-text {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+}
+
+.signup-bold {
+    color:white;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.signup-small {
+    color:white;
+}
+
+.signup-button-container {
+    display: flex;
+    align-self: center;
+    padding: 20px;
+    margin: 20px;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+#signup-button {
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+
+#links-header {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding-right: 20px;
+    
+}
+
+#link-trailer {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+}
+
+#get-ready-main {
+    font-size: 48px;
+    color: #f9faf8;
+    font-weight: bolder;
+
+}
+
+#get-ready-secondary {
+    font-size: 18px;
+    color: #e5e7eb;
+}
+
+#characters {
+    border-radius: 40px;
+    border: 4px solid #3882f6;
+    margin: 20px;
+}
+
+
+
+h4 {
+    font-weight: 100;
+    font-size: 20px;
+    font-style: italic;
+}

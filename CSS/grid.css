@@ -1,0 +1,25 @@
+
+/*
+
+
+    You need to have every cell of the grid filled.
+    To span across two cells, repeat the name.
+    To leave a cell empty, use a . (period).
+    Areas must be rectangular — for example, you can't have an L-shaped area.
+    Areas can't be repeated in different locations.
+
+
+
+*/
+
+
+
+
+#container-grid {
+    display: grid;
+    width: 100%;
+    height: 200px;
+    grid-template-columns: repeat(16, 1fr); 
+    grid-template-rows: minmax(100px auto);
+    gap: 20px;
+}
