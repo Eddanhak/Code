@@ -265,22 +265,18 @@ const peoples = [
     yearOfDeath: 1941,
   },
 ]
+
+
 const oldestPeep = function(obj) {
   obj.forEach(person => person.yearsLived = person.yearOfDeath - person.yearOfBirth);
 
-  let sortedYearsLived = obj.sort(function(a,b){
-    let firstPerson = a.yearsLived;
-    let nextPerson = b.yearsLived;
-    return firstPerson > nextPerson ? -1:1;
-  });
-  return obj.reduce(function(a,b){
-    if (b.yearsLived > a.yearsLived){
-      return a;
-    }
-    else{
-      return b;
-    }
-  } );
+  obj.sort(function(a,b){
+    return a.yearsLived > b.yearsLived ? -1:1;
+  })
+  let oldestPers = obj[0].name;
+  let filteredArr = obj.filter( person => person.name === oldestPers);
+  return filteredArr;
+
 }
 
 oldestPeep(peoples);
