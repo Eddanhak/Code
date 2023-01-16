@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Array Cardio 💪</title>
+  <style>
+    body {background-color: grey;}
+  </style>
 </head>
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
@@ -252,7 +255,6 @@ const peoples = [
   {
     name: "Carly",
     yearOfBirth: 1942,
-    yearOfDeath: 1970,
   },
   {
     name: "Ray",
@@ -273,15 +275,36 @@ const oldestPeep = function(obj) {
   obj.sort(function(a,b){
     return a.yearsLived > b.yearsLived ? -1:1;
   })
-  let oldestPers = obj[0].name;
-  let filteredArr = obj.filter( person => person.name === oldestPers);
-  return filteredArr;
-
+  let date = new Date()
+  let currentYear = date.getFullYear() 
+  return obj.reduce((oldest, currentPerson, index)=>{
+    if(!currentPerson.hasOwnProperty("yearOfDeath")) {
+      return currentPerson;
+    }
+    return oldest;
+  }, obj[0]);
 }
+
 
 oldestPeep(peoples);
 console.log(peoples);
 
+let date = new Date()
+  let currentYear = date.getFullYear() 
+  console.log(currentYear);
+// const reduePeep = function(obj) {
+//   return obj.reduce((oldest, currentPerson, index)=>{
+//     if(index > 0){
+//       obj.splice(index, obj.length);
+//     }
+//     console.log(oldest)
+//     return oldest;
+//   }, obj[0]);
+
+// }
+
+// reduePeep(peoples);
+// console.log(peoples);
   </script>
 </body>
 </html>
