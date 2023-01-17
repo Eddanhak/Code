@@ -1,21 +1,37 @@
+
+
+
+
 const findTheOldest = function(obj) {
-  obj.forEach(person => person.yearsLived = person.yearOfDeath - person.yearOfBirth);
+  obj.forEach(function(person){
+    if(person.hasOwnProperty("yearOfDeath")){
+      console.log(person);
+      person.yearsLived = person.yearOfDeath - person.yearOfBirth;
+    }
+    else {
+      let date = new Date();
+      let currentYear = date.getFullYear();
+      person.yearsLived = currentYear - person.yearOfBirth;
+    }
+  });
 
   obj.sort(function(a,b){
-    return a.yearsLived > b.yearsLived ? -1:1;
+    if(a.hasOwnProperty("yearsLived") && b.hasOwnProperty("yearsLived")){
+      return a.yearsLived > b.yearsLived ? -1:1;
+    }
   })
-  let date = new Date()
-  let currentYear = date.getFullYear() 
-  return obj.reduce((oldest, currentPerson, index)=>{
-    if(oldest.yearsLived > currentPerson.yearsLived) {
+  return obj.reduce((oldest, currentPerson)=>{
+    if(!currentPerson.hasOwnProperty("yearOfDeath")){
+      
+      }
+    else if(oldest.yearsLived > currentPerson.yearsLived){
       return oldest;
     }
-  else if(!currentPerson.yearOfDeath) {
+    else{
       return currentPerson;
     }
-    return oldest;
-  }, obj[0]);
-};
+  },obj[0]);
+}
 
 // Do not edit below this line
 module.exports = findTheOldest;
