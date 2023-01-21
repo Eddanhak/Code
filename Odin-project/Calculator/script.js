@@ -94,6 +94,15 @@ if (!this.checkIfExists(this.expression) && this.expression.length > 0) {
   }
 }
  ,
+
+ getOperators: function(exp){
+  let arr = [];
+  for(let i = 1; i < exp.length; i += 2){
+    arr.push(exp[i]);
+  }
+  return arr;
+ }
+ ,
  equals: function() {
    // Show  as text on screen.
    /*
@@ -108,43 +117,42 @@ if (!this.checkIfExists(this.expression) && this.expression.length > 0) {
 
   let expLength = this.expression.length;
   let express = this.expression;
+  let intOne = parseFloat(express[0]);
+  let intTwo = parseFloat(express[2]);
+  let operatorArr = this.getOperators(express);
+  console.log(operatorArr);
 
   if(expLength < 3){
     return;
   }
-  if(expLength === 3){
-    let intOne = parseFloat(express[0]);
-    let intTwo = parseFloat(express[2]);
-    let operator = express[1];
-    if(operator === "+"){
+    if(operatorArr[0] === "+"){
       this.totalSum = intOne + intTwo;
       this.expression = [];
       this.expression.push(`${this.totalSum}`);
-      console.log(this.expression)
       this.output.textContent = this.totalSum;
     }
-    if(operator === "-"){
+    if(operatorArr[0] === "-"){
       this.totalSum = intOne - intTwo;
       this.expression = [];
       this.expression.push(`${this.totalSum}`);
       this.output.textContent = this.totalSum;
 
     }
-    if(operator === "*"){
+    if(operatorArr[0] === "*"){
       this.totalSum = intOne * intTwo;
       this.expression = [];
       this.expression.push(`${this.totalSum}`);
       this.output.textContent = this.totalSum;
 
     }
-    if(operator === "/"){
+    if(operatorArr[0] === "/"){
       this.totalSum = intOne / intTwo;
       this.expression = [];
       this.expression.push(`${this.totalSum}`);
       this.output.textContent = this.totalSum;
 
     }
-  }
+
 
  }
  ,
@@ -247,5 +255,5 @@ if (!this.checkIfExists(this.expression) && this.expression.length > 0) {
 
 
 buttonContainer.addEventListener("click", (event) => Calculator.numbClick(event));
-buttonContainer.addEventListener("keydown", (event) => console.log(event.keyCode));
+document.body.addEventListener("keydown", (event) => console.log(event.keyCode));
 operatorContainer.addEventListener("click", (event) => Calculator.operatorClick(event));
