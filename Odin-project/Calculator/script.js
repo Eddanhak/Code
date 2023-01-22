@@ -40,10 +40,6 @@ if(/[+*/-]/.test(exp[exp.length-1])){
 }
 ,
  add: function(){
-  /*
-    Checks if "+" already exists with Array.from(arr[1]).
-    If not, adds "+" to expression, and sets this.currentNumber value to "".
-  */
  if(!this.checkIfExists(this.expression) && this.expression.length > 0){
   this.expression.push("+");
  }
@@ -243,11 +239,15 @@ if (!this.checkIfExists(this.expression) && this.expression.length > 0) {
 ,
 
 keyPress: function(event,btnCont, exp){
+  console.log(event)
   btnCont.forEach(function(btn){
-    let btnVal = event.key; 
-    if(btn.getAttribute("data-key") == event.keyCode){
+    let btnVal = event.key;
+    if(/[0-9]/.test(btnVal) && btn.getAttribute("data-key") == event.keyCode){
       Calculator.addNumber(exp, btnVal);
       Calculator.output.textContent += btnVal;
+    }
+    if(btnVal === "." && btn.getAttribute("data-key") == event.keyCode){
+      Calculator.decimal(exp, btnVal);
     }
   })
   let textContArr = Array.from(Calculator.output.textContent)
@@ -257,29 +257,31 @@ keyPress: function(event,btnCont, exp){
     }
     if(event.key === "-"){
       Calculator.subtract();
-      if(!textContArr.includes(event.key)){
-        Calculator.output.textContent += event.key;
-      }
+
     }
     if(event.key === "/"){
       Calculator.divide();
-      if(!textContArr.includes(event.key)){
-        Calculator.output.textContent += event.key;
-      }
 
     }
     if(event.key === "+"){
       Calculator.add();
-      if(!textContArr.includes(event.key)){
-        Calculator.output.textContent += event.key;
-      }
+
     }
     if(event.key === "*"){
       Calculator.multiply();
-      if(!textContArr.includes(event.key)){
-        Calculator.output.textContent += event.key;
-      }
-      
+
+    }
+  }
+  if(event.key === "Backspace"){
+    Calculator.undo(exp);
+  }
+  if(event.key === "Enter"){
+    Calculator.equals();
+  }
+  if(/[+*/-]/.test(event.key)){
+    if(!/[+*/-]/.test(textContArr) && exp.length > 0){
+      console.log(textContArr)
+      Calculator.output.textContent += event.key;
     }
   }
 }
@@ -290,4 +292,5 @@ keyPress: function(event,btnCont, exp){
 
 buttonContainer.addEventListener("click", (event) => Calculator.numbClick(event));
 operatorContainer.addEventListener("click", (event) => Calculator.operatorClick(event));
-document.body.addEventListener("keypress", (event) => Calculator.keyPress(event, buttons, Calculator.expression));
+// operatorContainer.addEventListener("keydown", (event) => Calculator.undoButton(event));
+document.body.addEventListener("keydown", (event) => Calculator.keyPress(event, buttons, Calculator.expression));
