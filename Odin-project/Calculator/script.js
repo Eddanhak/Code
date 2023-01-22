@@ -20,17 +20,8 @@ const operatorContainer = document.querySelector("#container-functions");
 const buttonContainer = document.querySelector("#container-buttons");
 const buttons = buttonContainer.querySelectorAll(".btn");
 
-function assignDataKey(arr){
-  let key = 48;
-  arr.forEach(function(btn){
-    if(btn.getAttribute("data-key") === null){
-    btn.setAttribute("data-key", key)
-    key ++;
-    }
 
-  })
-}
-assignDataKey(buttons);
+
 
 
 const Calculator = {
@@ -206,6 +197,7 @@ if (!this.checkIfExists(this.expression) && this.expression.length > 0) {
 ,
 
  operatorClick: function(event){
+  let expLength = this.expression.length;
   let operator = event.target.innerText;
   if(event.target.tagName === "BUTTON"){
     if(operator === "C"){
@@ -227,8 +219,8 @@ if (!this.checkIfExists(this.expression) && this.expression.length > 0) {
       this.divide();
     }
   }
-  if(this.expression.length > 0 && operator !== "↺"){
-  this.output.textContent += operator;
+  if(this.expression[expLength-1] > 0 && operator !== "↺" && /[+*/-]/.test(this.expression[expLength-1]) != true){
+    this.output.textContent += operator;
   }
 
 }
@@ -248,12 +240,54 @@ if (!this.checkIfExists(this.expression) && this.expression.length > 0) {
       exp.push(btnVal);
     }
   }
+,
+
+keyPress: function(event,btnCont, exp){
+  btnCont.forEach(function(btn){
+    let btnVal = event.key; 
+    if(btn.getAttribute("data-key") == event.keyCode){
+      Calculator.addNumber(exp, btnVal);
+      Calculator.output.textContent += btnVal;
+    }
+  })
+  let textContArr = Array.from(Calculator.output.textContent)
+  if(/[+*/=-]/.test(event.key)){
+    if(event.key === "="){
+      Calculator.equals();
+    }
+    if(event.key === "-"){
+      Calculator.subtract();
+      if(!textContArr.includes(event.key)){
+        Calculator.output.textContent += event.key;
+      }
+    }
+    if(event.key === "/"){
+      Calculator.divide();
+      if(!textContArr.includes(event.key)){
+        Calculator.output.textContent += event.key;
+      }
+
+    }
+    if(event.key === "+"){
+      Calculator.add();
+      if(!textContArr.includes(event.key)){
+        Calculator.output.textContent += event.key;
+      }
+    }
+    if(event.key === "*"){
+      Calculator.multiply();
+      if(!textContArr.includes(event.key)){
+        Calculator.output.textContent += event.key;
+      }
+      
+    }
+  }
+}
 
 }
 
 
 
-
 buttonContainer.addEventListener("click", (event) => Calculator.numbClick(event));
-document.body.addEventListener("keydown", (event) => console.log(event.keyCode));
 operatorContainer.addEventListener("click", (event) => Calculator.operatorClick(event));
+document.body.addEventListener("keypress", (event) => Calculator.keyPress(event, buttons, Calculator.expression));
