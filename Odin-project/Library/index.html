@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="container-main">
+        <div id="container-topbar">
+            <h2 id="topbar-header">My Library</h2>
+            <div id="container-topbar-buttons">
+                <button class="topbar-button" id="topbar-button-add">Add Book</button>
+                <button class="topbar-button" id="topbar-button-remove">Remove Book</button>
+            </div>
+        </div>
+        <div id="container-book-cards-grid">
+           
+        </div>
+        <div id="container-form-main">
+            <div id="container-book-form">
+                <button id="book-form-exit">X</button>
+                <h3 id="book-form-header">New Book</h3>
+    
+                <form id="book-form">
+                    <label for="BookName">Title:</label>
+                    <input type="text" id="Book-name-input" name="bookName" class="new-book-input">
+                    <label for="bookAuthor">Author:</label>
+                    <input type="text" id="Book-author-input" name="bookAuthor" class="new-book-input">
+                    <label for="bookPages">Pages:</label>
+                    <input type="text" name="bookPages" id="book-pages-input" class="new-book-input">
+                    <div id="container-book-form-isread">
+                        <label for="IsRead">Have Read</label>
+                        <input type="checkbox" name="IsRead" id="book-form-isread-box" value="Is Read">
+                    </div>
+                    <input type="submit" name="BookAdd" id="book-form-submit-button" value="Add Book">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
