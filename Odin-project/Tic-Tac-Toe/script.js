@@ -82,7 +82,7 @@ const gameBoard = (function () {
         displayController.clearPlayers();
         btnNextRound.style.visibility = "hidden";
         headerWinner.style.visibility = "hidden";
-        
+
     }
 
     function startGame() {
@@ -127,7 +127,6 @@ const gameBoard = (function () {
         for(let i = 0; i < squareArray.length; i++){
             if(typeof squareArray[i][0] == 'undefined'){
                 counter++;
-                console.log("YEAH");
                 return false;
             }
         }
@@ -178,7 +177,6 @@ const gameBoard = (function () {
                     pOneIndex.push(squareArray.indexOf(squareArray[i]));
                     if(counter >= 3){
                         pOneIndex.sort();
-                        console.log(pOneIndex);
                         for(let x = 0; x < inRowIndexes.length; x++){
                             let rowCounter = 0;
                             let indOne = inRowIndexes[x][0];
@@ -191,7 +189,6 @@ const gameBoard = (function () {
                                         rowCounter++;
                                     }
                                     if(rowCounter == 3){
-                                        console.log("Player 1 Wins!");
                                         gameBoard.playerScored(playerArray[0]);
                                         gameBoard.playerWin();
                                     }
@@ -218,7 +215,6 @@ const gameBoard = (function () {
                                         rowCounter++;
                                     }
                                     if(rowCounter == 3){
-                                        console.log("Player 2 Wins!");
                                         gameBoard.playerScored(playerArray[1]);
                                         gameBoard.playerWin();
                                     }
@@ -240,9 +236,7 @@ const gameBoard = (function () {
         pName = playerForm[0].value;
         pAge = parseInt(playerForm[1].value);
         if(typeof pName === 'string' && pName.length >= 3){
-            console.log("yup 1")
             if(typeof pAge === 'number' && String(pAge).length > 0){
-                console.log("yup 2")
                 if(playerArray.length <= 2){
                     if(playerArray.length == 0){
                         let pOne = playerFactory(pName, pAge);
@@ -364,7 +358,7 @@ function btnEvents() {
             displayController.addNewPlayer();
 
         } catch (ReferenceError){
-            console.log("yeah");
+            console.log("error");
         }
     if(playerArray.length == 2){
         btnStartGame.style.visibility = "visible";
