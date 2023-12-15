@@ -82,12 +82,14 @@ const gameBoard = (function () {
         displayController.clearPlayers();
         btnNextRound.style.visibility = "hidden";
         headerWinner.style.visibility = "hidden";
+        btnResetGame.style.visibility = "hidden";
 
     }
 
     function startGame() {
         if(playerArray.length == 2){
             roundStarted = true;
+            btnResetGame.style.visibility = "visible";
         }
     }
     function pauseGame(){
