@@ -8,6 +8,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container" id="container-main">
+        <div class="container" id="container-topbar">
+            <div class="container" id="container-main-menu">
+                <div class="container" id="container-start-game-button">
+                    <button class="btn" id="start-game-btn">Start Game</button>
+                </div>
+                <div class="container" id="container-new-player-buttons">
+                    <button id="new-player-form-button">New Player</button>
+                    <button id="new-player-form-button-cancel">Cancel</button>
+                </div>
+                <form id="new-player-form">
+                    <label for="playerName">Name:</label>
+                    <input type="text" id="player-name-input" name="playerName" class="player-form-input" required>
+                    <label for="playerAge">Age:</label>
+                    <input type="text" id="player-age-input" name="playerAge" class="player-form-input" required>
+                    <input type="submit" id="new-player-submit" name="playerSubmit" class="player-form-input" value="Add">
+                    <button id="clear-player-list-btn">Clear</button>
+                </form>
+
+            </div>
+            <div class="container" id="container-scoreboard">
+                <h1 class="header-score" id="player-list">Players:</h1>
+                <h2 class="header-score" id="playerone-score"></h2>
+                <h2 class="header-score" id="playertwo-score"></h2>
+                <h3 class="header-score" id="rounds-counter"></h3>
+                <button id="btn-reset-game">Reset Game</button>
+            </div>
+        </div>
+        <div class="container" id="container-game-board">
+            <div class="container" id="container-game-board-square-grid">
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+                <button class="game-button"></button>
+            </div>
+            <div class="container" id="container-round-over">
+                <h1 id="header-winner">You Win!</h1>
+                <button id="next-round-btn">Next Round</button>
+            </div>
+    
+        </div>
+    </div>
     
 </body>
 </html>

@@ -1,0 +1,128 @@
+html,body {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#container-main {
+    height: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 2fr 1fr;
+    background-color: rgb(6, 66, 66);
+}
+#container-topbar {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    margin-top: 20px;
+}
+
+#container-main-menu {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 50px;
+}
+
+
+#container-start-game-button {
+    display: flex;
+    justify-content: center;
+}
+
+#start-game-btn {
+    visibility: hidden;
+    
+}
+
+#container-new-player-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#container-game-board {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    
+}
+
+#container-game-board-square-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+
+}
+
+#container-round-over {
+    padding: 0 0 0 50px;
+    align-self: center;
+}
+
+#header-winner {
+    color: yellow;
+    visibility: hidden;
+}
+
+#next-round-btn {
+    font-size: 24px;
+    visibility: hidden;
+
+}
+
+.game-button {
+    background: none;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    margin: 0px;
+    font-size: 125px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    outline: none;
+}
+
+.game-button:active {
+    border-style: outset;
+}
+
+
+#new-player-form {
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+}
+
+.player-form-input {
+    margin: 5px 0 5px 0;
+}
+
+label {
+    color: white;
+}
+
+#new-player-form-button {
+    margin:15px;
+}
+
+#new-player-form-button-cancel {
+    visibility: hidden;
+}
+
+.header-score {
+    font-size: 30px;
+    color: rgb(170, 155, 16);
+}
